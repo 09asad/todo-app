@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-const Login = () => {
+const Signup = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
-  const handleLogin = async () => {
+  const handleSignup = async () => {
     if (!username.trim() || !password.trim()) {
       alert("Please enter username and password");
       return;
@@ -17,7 +17,7 @@ const Login = () => {
     try {
       setLoading(true);
 
-      const response = await fetch("http://localhost:3000/auth/login", {
+      const response = await fetch("http://localhost:3000/auth/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -69,7 +69,7 @@ const Login = () => {
             </h1>
 
             <p className="mt-2 text-sm text-slate-400">
-              Login to manage your tasks and stay productive.
+              Signup to create account and manage your tasks and stay productive.
             </p>
           </div>
 
@@ -105,7 +105,7 @@ const Login = () => {
 
           {/* Button */}
           <button
-            onClick={handleLogin}
+            onClick={handleSignup}
             disabled={loading}
             className="w-full rounded-xl bg-blue-600 px-4 py-3 font-semibold text-white transition hover:bg-blue-500 disabled:cursor-not-allowed disabled:opacity-60 active:scale-[0.98]"
           >
@@ -128,4 +128,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Signup;

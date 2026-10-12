@@ -24,6 +24,7 @@
     "zod": "^3.21.4"
   },
   "devDependencies": {
-    "@types/cookie-parser": "^1.4.10"
+    "@types/cookie-parser": "^1.4.10",
+    "typescript": "^7.0.2"
   }
 }
