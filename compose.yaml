@@ -1,0 +1,22 @@
+services:
+  todo-server:
+    image: 03asad/todo-server:v1
+    container_name: todo-backend
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./server/.env
+    restart:
+      unless-stopped
+
+  todo-client:
+    image: 03asad/todo-client:v1
+    container_name: todo-frontend
+    ports:
+      - "5173:80"
+    depends_on:
+      - todo-server
+    restart:
+      unless-stopped
+
+    
